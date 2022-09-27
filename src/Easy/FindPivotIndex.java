@@ -12,9 +12,12 @@ public class FindPivotIndex {
         int input[] = {1,7,3,6,5,6};
         int input2[] = {1,2,3};
         int input3[] = {2,1, -1};
-        System.out.println(pivotIndex(input));
-        System.out.println(pivotIndex(input2));
-        System.out.println(pivotIndex(input3));
+//        System.out.println(pivotIndex(input));
+//        System.out.println(pivotIndex(input2));
+//        System.out.println(pivotIndex(input3));
+        System.out.println(pivotElement(input));
+        System.out.println(pivotElement(input2));
+        System.out.println(pivotElement(input3));
     }
 
     private static int pivotIndex(int[] nums) {
@@ -39,6 +42,20 @@ public class FindPivotIndex {
         for(int i =1;i<nums.length;i++){
             if(left[i] == right[i])
                 return i-1;
+        }
+        return -1;
+    }
+
+    private static int pivotElement(int[] nums) {
+        int leftSum =0;
+        int sum =0;
+        for(int num : nums)
+            sum = sum+ num;
+        for (int i =0;i< nums.length;i++) {
+            System.out.println("left " + leftSum + " sum - leftSum - nums[i] " + (sum - leftSum - nums[i]));
+            if(leftSum == sum - leftSum - nums[i])
+                return i;
+            leftSum = leftSum + nums[i];
         }
         return -1;
     }
