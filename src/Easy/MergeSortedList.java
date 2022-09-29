@@ -1,5 +1,7 @@
 package Easy;
 
+import static Easy.ListNode.printLL;
+
 public class MergeSortedList {
 
     public static void main(String[] args) {
@@ -21,13 +23,7 @@ public class MergeSortedList {
     }
 
 
-    public static void printLL(ListNode list) {
-        while (list!=null) {
-            System.out.print(list.val +" ");
-            list = list.next;
-        }
-        System.out.println();
-    }
+
 
     public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         ListNode res = new ListNode(0);
